@@ -10,8 +10,9 @@ const videos = [
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('anilove')
+        .name('anilove')
         .setDescription('Sends a random anime love story / AMV video'),
+        . alias ["anilove"],
     async execute(interaction) {
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         await interaction.reply(`💖 Here's a random anime love video for you!\n${randomVideo}`);
