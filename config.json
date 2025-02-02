@@ -18,7 +18,7 @@
   },
   "adminBot": [61559946582981,
     ""100071957900405,
-    "61554113908206,
+    "61554113908206
   ],
   "whiteListMode": {
     "enable": false,
@@ -26,7 +26,7 @@
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
   "nickNameBot": "_𝑴𝒂𝒉𝒊𝒓𝒖..!!❤️‍🩹🐥",
-  "prefix": ".",
+  "prefix": "!",
   "database": {
     "type": "sqlite",
     "uriMongodb": "",
