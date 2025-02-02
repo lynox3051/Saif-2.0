@@ -25,7 +25,7 @@
     "whiteListIds": [],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "Your_Bot_Name",
+  "nickNameBot": "_𝑴𝒂𝒉𝒊𝒓𝒖..!!❤️‍🩹🐥",
   "prefix": ".",
   "database": {
     "type": "sqlite",
@@ -37,15 +37,15 @@
   "timeZone": "Asia/Dhaka",
   "credentials": {
     "gmailAccount": {
-      "email": "vexaryan@gmail.com",
-      "clientId": "695328982889-v1t85ej9aq1fvv0n4alp7rcbea9gkgvf.apps.googleusercontent.com",
-      "clientSecret": "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",
-      "refreshToken": "1//04EyH1gbNUVv5CgYIARAAGAQSNwF-L9IrqcPCQD2QsuhCQ2XprHCTMrTnVPI6WvT9i73nnoi4XqfAD0_yDoGW_gtWUdIeVtANzao",
+      "email": "nirobislamm11@gmail.com",
+      "clientId": "277674445054-1g51ha7n5iufkaahf7tv5u90ekc25f7h.apps.googleusercontent.com",
+      "clientSecret": "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",
+      "refreshToken": "1//04k_yZQRD0JzICgYIARAAGAQSNwF-L9IrUqTlxaJkHSHGAAfwEsNfxW0D1Jnp5rPylPhBV95Zq-PV0cd-B3uG9HWEYXNmpML-v5A",
       "apiKey": ""
     },
     "gRecaptcha": {
-      "siteKey": "6Lff7Y0mAAAAALiv3IBkCCOfCdEsN-lK-jtR5FCm",
-      "secretKey": "6Lff7Y0mAAAAAGQr8dO3lqDJVhTi8Q-tpLLy2kGo"
+      "siteKey": "6LexpMoqAAAAAK5ojEP7Fn16MOgtaiDf8b_WezCx",
+      "secretKey": "6LexpMoqAAAAADTr-3whGxTKCrDW_Kl02GqGcJb8"
     }
   },
   "dashBoard": {
