@@ -64,7 +64,7 @@ module.exports = {
       msg += ``;
       msg += `\n╭─────✰\n│ ♥︎╣[❉𝗦 𝗔 𝗜 𝗙❉]╠♥︎\n╰────────────✰`; 
 
- 				const helpListImages = [ "https://drive.google.com/file/d/1-1Cx8SKJzyIcG2JFfIzhgaRp60FNNF2P/view?usp=drivesdk" ];
+ 				const helpListImages = [ "https://imgur.com/a/rJDFXi5" ];
 
 
       const helpListImage = helpListImages[Math.floor(Math.random() * helpListImages.length)];
