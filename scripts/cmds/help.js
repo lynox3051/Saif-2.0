@@ -93,7 +93,7 @@ module.exports = {
   │ 🔶 ${configCommand.name}
   ├── INFO
   │ 📝 𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻: ${longDescriptio}
-  │ 👑 𝗔𝘂𝘁𝗵𝗼𝗿: ${SAIF}
+  │ 👑 𝗔𝘂𝘁𝗵𝗼𝗿: ${usage}
   │ ⚙ 𝗚𝘂𝗶𝗱𝗲: ${usage}
   ├── USAGE
   │ 🔯 𝗩𝗲𝗿𝘀𝗶𝗼𝗻: ${configCommand.version || "1.0"}
