@@ -38,7 +38,7 @@ if (args.length === 0) {
   msg += ``;
   msg += `\n╭─────✰\n│ ♥︎╣[❉𝗦 𝗔 𝗜 𝗙❉]╠♥︎\n╰────────────✰`; 
 
-			const helpListImages = [ "https://imgur.com/a/ydG4zdN" ];
+			const helpListImages = [ "https://imgur.com/a/DICxKGf" ];
 
 
   const helpListImage = helpListImages[Math.floor(Math.random() * helpListImages.length)];
