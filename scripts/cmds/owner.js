@@ -25,12 +25,12 @@ module.exports = {
 				Birthday: '1-5-2009',
 				religion: 'Islam',
 				hobby: 'Sleeping',
-				Fb: 'https://www.facebook.com/share/1AuVA8VhCm/',
+				Fb: 'https://m.me/ewrsaif570',
 				Relationship: 'Single',
 				Height: '5"4'
 			};
 
-			const bold = 'https://i.imgur.com/oP1hQbJ.jpeg';
+			const bold = 'https://i.imgur.com/RiIHRMg.mp4';
 			const tmpFolderPath = path.join(__dirname, 'tmp');
 
 			if (!fs.existsSync(tmpFolderPath)) {
@@ -43,17 +43,17 @@ module.exports = {
 			fs.writeFileSync(videoPath, Buffer.from(videoResponse.data, 'binary'));
 
 			const response = `
-✨🐼 𝖮𝖶𝖭𝖤𝖱 𝖨𝖭𝖥𝖮𝖱𝖬𝖠𝖳𝖨𝖮𝖭 🐼✨\n
- ~Name: ${ownerInfo.name}
- ~Class: ${ownerInfo.class}
- ~Group: ${ownerInfo.group}
- ~Gender: ${ownerInfo.gender}
- ~Birthday: ${ownerInfo.Birthday}
- ~Religion: ${ownerInfo.religion}
- ~Relationship: ${ownerInfo.Relationship}
- ~Hobby: ${ownerInfo.hobby}
- ~Height: ${ownerInfo.Height}
- ~Fb: ${ownerInfo.Fb}
+<3❤️ 𝖮𝖶𝖭𝖤𝖱 𝖨𝖭𝖥𝖮𝖱𝖬𝖠𝖳𝖨𝖮𝖭 🪄🐺\n
+ >⁠.⁠<Name: ${ownerInfo.name}
+ >⁠.⁠<Class: ${ownerInfo.class}
+ >⁠.⁠<Group: ${ownerInfo.group}
+ >⁠.⁠<Gender: ${ownerInfo.gender}
+ >⁠.⁠<Birthday: ${ownerInfo.Birthday}
+ >⁠.⁠<Religion: ${ownerInfo.religion}
+ >⁠.⁠<Relationship: ${ownerInfo.Relationship}
+ >⁠.⁠<Hobby: ${ownerInfo.hobby}
+ >⁠.⁠<Height: ${ownerInfo.Height}
+ >⁠.⁠<Fb: ${ownerInfo.Fb}
 			`;
 
 			await api.sendMessage({
