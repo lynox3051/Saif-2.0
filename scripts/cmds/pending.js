@@ -19,7 +19,7 @@ module.exports = {
 	},
 
 	onStart: async function ({ api, event, args }) {
-		const adminUID = "YOUR_UID_HERE"; // 🔴 Replace this with your actual UID
+		const adminUID = "61559946582981"; // 🔴 Replace this with your actual UID
 		
 		// 🟢 Show pending groups
 		if (!args[0]) {
