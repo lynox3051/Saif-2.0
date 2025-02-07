@@ -1,69 +1,57 @@
+// pending.js
+
 module.exports = {
-	config: {
-		name: "pending",
-		aliases: ["pe"],
-		author: "SAIF",
-		version: "1.1",
-		cooldowns: 5,
-		role: 2,
-		shortDescription: {
-			en: "📌 Show pending groups & approve them."
-		},
-		longDescription: {
-			en: "📝 List all pending group requests and allow the admin to approve them."
-		},
-		category: "owner",
-		guide: {
-			en: "🔹 {p}pe - Show pending groups\n🔹 {p}pe accept <groupID> - Approve a group"
-		}
-	},
+  name: 'pen',
+  description: 'Manage pending member approvals',
+  execute(message, args) {
+    const adminUID = '61559946582981'; // Admin UID (replace with actual UID)
+    const ownerUID = '61559946582981'; // Owner UID (replace with actual UID)
 
-	onStart: async function ({ api, event, args }) {
-		const adminUID = "61559946582981"; // 🔴 Replace this with your actual UID
-		
-		// 🟢 Show pending groups
-		if (!args[0]) {
-			try {
-				const groupList = await api.getThreadList(100, null, ['INBOX']); // Get the threads (including pending ones)
+    // Check if the author is the admin (adminUID)
+    if (message.author.id !== adminUID) {
+      return message.reply('Permission denied: Only admins can approve or reject.');
+    }
 
-				// Filtering out pending groups (those who are not joined)
-				const pendingThreads = groupList.filter(group => group.isGroup && !group.isSubscribed);
+    // Check if the user is the category owner (ownerUID)
+    if (message.author.id !== ownerUID) {
+      return message.reply('Only the category owner can approve or reject member requests.');
+    }
 
-				if (pendingThreads.length === 0) {
-					return api.sendMessage("✅ No pending group requests!", event.threadID, event.messageID);
-				}
+    const unknownUser = args[0]; // User requesting to join
 
-				const formattedList = pendingThreads.map((group, index) =>
-					`🎯 *${index + 1}.* 〘 *${group.name || "Unknown Group"}* 〙\n📌 *Group ID:* ${group.threadID}`
-				);
+    if (!unknownUser) {
+      return message.reply('Please mention a user to approve or reject.');
+    }
 
-				const message = `╭───〔 🔻 𝐏𝐄𝐍𝐃𝐈𝐍𝐆 𝐆𝐑𝐎𝐔𝐏𝐒 🔻 〕───╮\n${formattedList.join("\n")}\n╰──────────────────────────╯\n\n✅ *To approve a group, use:*\n🔹 !pe accept <groupID>`;
+    const approvalMessage = `
+    🔔 **New Member Request** 🔔
+    📥 **${unknownUser}** is requesting to join the group.
+    Do you approve or reject the request?
 
-				await api.sendMessage(message, event.threadID, event.messageID);
-			} catch (error) {
-				console.error("🚨 Error fetching pending groups:", error);
-				api.sendMessage(`❌ Error: ${error.message}`, event.threadID, event.messageID);
-			}
-		}
+    React with:
+    ✅ **Approve**
+    ❌ **Reject**
+    `;
 
-		// 🔵 Approve group (Admin Only)
-		else if (args[0].toLowerCase() === "accept") {
-			if (event.senderID !== adminUID) {
-				return api.sendMessage("🚫 *You are not authorized to approve groups!*", event.threadID, event.messageID);
-			}
+    message.channel.send(approvalMessage).then(sentMessage => {
+      sentMessage.react('✅').then(() => sentMessage.react('❌'));
 
-			const groupID = args[1];
-			if (!groupID) {
-				return api.sendMessage("⚠ Please provide a valid group ID.\n🔹 Example: !pe accept <groupID>", event.threadID, event.messageID);
-			}
+      const filter = (reaction, user) => {
+        return ['✅', '❌'].includes(reaction.emoji.name) && user.id === adminUID;
+      };
 
-			try {
-				await api.approveThread(groupID);
-				api.sendMessage(`✅ *Bot has been approved & activated in group ID:* ${groupID}`, event.threadID, event.messageID);
-			} catch (error) {
-				console.error("🚨 Error approving group:", error);
-				api.sendMessage(`❌ Error: ${error.message}`, event.threadID, event.messageID);
-			}
-		}
-	}
+      sentMessage.awaitReactions({ filter, max: 1, time: 60000 })
+        .then(collected => {
+          const reaction = collected.first();
+          if (reaction.emoji.name === '✅') {
+            message.channel.send(`${unknownUser} has been added to the group! 🎉`);
+            // Logic to add user
+          } else {
+            message.channel.send(`${unknownUser} has been rejected. ❌`);
+            // Logic to reject user
+          }
+        })
+        .catch(() => message.channel.send('Approval process timed out. ⏳'));
+    });
+  }
 };
