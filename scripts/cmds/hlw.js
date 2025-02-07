@@ -18,10 +18,15 @@ const makeBold = (text) => {
 };
 
 const getAPIBase = async () => {
-  const { data } = await axios.get(
-    "https://raw.githubusercontent.com/nazrul4x/Noobs/main/Apis.json"
-  );
-  return data.bs;
+  try {
+    const { data } = await axios.get(
+      "https://raw.githubusercontent.com/nazrul4x/Noobs/main/Apis.json"
+    );
+    return data.bs;
+  } catch (error) {
+    console.error("API fetch error:", error);
+    return null;
+  }
 };
 
 const sendMessage = (api, threadID, message, messageID) => 
@@ -41,34 +46,41 @@ const teachBot = async (api, threadID, messageID, senderID, teachText) => {
     );
   }
 
-  const answerArray = answers
-    .replace(/["]+/g, '')
-    .split(",")
-    .map((ans) => ans.trim())
-    .filter((ans) => ans !== "");
+  const answerArray = answers.split(",").map((ans) => ans.trim()).filter((ans) => ans !== "");
 
   try {
+    const apiBase = await getAPIBase();
+    if (!apiBase) return cError(api, threadID, messageID);
+
     const res = await axios.get(
-      `${await getAPIBase()}/bby/teach?ask=${encodeURIComponent(ask)}&ans=${encodeURIComponent(answerArray.join(","))}&uid=${senderID}`
+      `${apiBase}/bby/teach?ask=${encodeURIComponent(ask)}&ans=${encodeURIComponent(answerArray.join(","))}&uid=${senderID}`
     );
+
     const responseMsg =
       res.data?.message === "Teaching recorded successfully!"
         ? `Successfully taught the bot!\n📖 Teaching Details:\n- Question: ${res.data.ask}\n- Answers: ${answerArray.join(", ")}\n- Your Total Teachings: ${res.data.userStats.user.totalTeachings}`
         : res.data?.message || "Teaching failed.";
+
     return sendMessage(api, threadID, responseMsg, messageID);
-  } catch {
+  } catch (error) {
+    console.error("TeachBot error:", error);
     return cError(api, threadID, messageID);
   }
 };
 
 const talkWithBot = async (api, threadID, messageID, senderID, input) => {
   try {
+    const apiBase = await getAPIBase();
+    if (!apiBase) return cError(api, threadID, messageID);
+
     const res = await axios.get(
-      `${await getAPIBase()}/bby?text=${encodeURIComponent(input)}&uid=${senderID}`
+      `${apiBase}/bby?text=${encodeURIComponent(input)}&uid=${senderID}`
     );
+    
     const reply = makeBold(res.data?.text || "Please teach me.\nExample: /sim teach <ask> - <answer>");
-    const react = res.data.react;
-    return api.sendMessage(reply+react, threadID, (error, info) => {
+    const react = res.data.react || "";
+    
+    return api.sendMessage(reply + react, threadID, (error, info) => {
       if (error) return cError(api, threadID, messageID);
       global.GoatBot.onReply.set(info.messageID, {
         commandName: module.exports.config.name,
@@ -78,7 +90,8 @@ const talkWithBot = async (api, threadID, messageID, senderID, input) => {
         msg: reply,
       });
     }, messageID);
-  } catch {
+  } catch (error) {
+    console.error("TalkWithBot error:", error);
     return cError(api, threadID, messageID);
   }
 };
@@ -123,11 +136,9 @@ module.exports.onChat = async ({ api, event }) => {
   if (keywords.some((keyword) => userInput.startsWith(keyword))) {
     const isQuestion = userInput.split(" ").length > 1;
     if (isQuestion) {
-      const question = userInput.slice(userInput.indexOf(" ") + 1).trim();
-
-      try {
-        const res = await axios.get(
-          `${await getAPIBase()}/bby?text=${encodeURIComponent(question)}&uid=${senderID}`
-        );
-        const replyMsg = makeBold(res.data?.text || "I couldn't understand that. Please teach me!");
-      
+      return talkWithBot(api, threadID, messageID, senderID, userInput.slice(userInput.indexOf(" ") + 1).trim());
+    } else {
+      return sendMessage(api, threadID, cMessages[Math.floor(Math.random() * cMessages.length)], messageID);
+    }
+  }
+};
