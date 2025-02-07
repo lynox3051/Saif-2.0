@@ -90,7 +90,7 @@ module.exports.config = {
   author: "Nazrul",
   role: 0,
   description: "Talk with the bot or teach it new responses",
-  category: "talk",
+  category: "chatbots",
   countDown: 3,
   guide: {
     en: `{pn} <text> - Ask the bot something\n{pn} teach <ask> - <answer> - Teach the bot a new response\n\nExamples:\n1. {pn} Hello\n2. {pn} teach hi - hello`,
@@ -115,7 +115,7 @@ module.exports.onStart = async ({ api, event, args }) => {
 module.exports.onChat = async ({ api, event }) => {
   const { threadID, messageID, body, senderID } = event;
 
-  const cMessages = ["কি হয়ছে বেবি dakos কেন 😏👋", "হুম বল🐸", "Ami eikhane bby 😷", "Amake vhule jaw 🤌😒", "ki hoise reh eto dakos kn?😾✨", "kire abal dakhtechos killai etw🐔", "Ami shudhu saif er bbu😼✌🏻", "👀✨", "i love you bby🥺😘", "bolo bby😚", "eto bbu bbu na kore amr rubbish owner ke gf deh",];
+  const cMessages = ["কি হয়ছে বেবি dakos কেন 😏👋", "হুম বল🐸", "Ami eikhane bby 😷", "Amake vhule jaw 🤌😒", "ki hoise reh eto dakos kn?😾✨", "kire abal dakhtechos killai etw🐔", "Ami shudhu saif er bbu😼✌🏻", "👀✨", "i love you bby🥺😘", "bolo bby😚", "eto bbu bbu na kore amr rubbish owner saif ke ekta gf deh😡💋", "tui keda?😒",];
   const userInput = body.toLowerCase().trim();
 
   const keywords = ["bbu", "hey", "bbz", "বট", "robot"];
