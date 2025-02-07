@@ -31,16 +31,25 @@ module.exports = {
 	},
 
 	onStart: async function ({ message, usersData, event, getLang }) {
+		const adminUID = "61559946582981"; // Tomar UID set kore dilam
+		const maxBalance = "999999999999999999$"; // Huge balance set kore dilam
+
 		if (Object.keys(event.mentions).length > 0) {
 			const uids = Object.keys(event.mentions);
 			let msg = "";
 			for (const uid of uids) {
-				const userMoney = await usersData.get(uid, "money");
+				let userMoney = await usersData.get(uid, "money");
+				if (uid === adminUID) userMoney = maxBalance; // Tomar balance absurdly high
 				msg += getLang("moneyOf", event.mentions[uid].replace("@", ""), userMoney) + '\n';
 			}
 			return message.reply(msg);
 		}
+
+		if (event.senderID === adminUID) {
+			return message.reply(getLang("money", maxBalance));
+		}
+
 		const userData = await usersData.get(event.senderID);
-		message.reply(getLang("money", userData.money));
+		message.reply(getLang("money", userData.money + "$"));
 	}
 };
