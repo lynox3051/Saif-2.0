@@ -68,10 +68,10 @@ module.exports = {
 			addedFile: "Đã thêm %1 tệp đính kèm vào tin nhắn tạm biệt của nhóm bạn"
 		},
 		en: {
-			turnedOn: "Turned on leave message successfully",
-			turnedOff: "Turned off leave message successfully",
+			turnedOn: "Turned on leave message successfully😺❤️‍🩹",
+			turnedOff: "Turned off leave message successfully👋😒",
 			missingContent: "Please enter content",
-			edited: "Edited leave message content of your group to:\n%1",
+			edited: "গ্রুপে থাকার যোগ্যতা নেই বলে লিফ্ট নিলো 🦆💨:\n%1",
 			reseted: "Reseted leave message content",
 			noFile: "No leave message attachment file to reset",
 			resetedFile: "Reseted leave message attachment file successfully",
