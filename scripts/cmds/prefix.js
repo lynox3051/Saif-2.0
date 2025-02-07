@@ -54,17 +54,16 @@ module.exports = {
 			confirmThisThread: "⚠️| Areh abul ekta react deh😾",
 			successGlobal: "♻️| Changed prefix of system bot to: %1",
 			successThisThread: "🦎| Neh hala tor gc prefix🦆💨: %1",
-			myPrefix: "😺🖤𝘼𝙎𝙎𝘼𝙇𝘼𝙈𝙐𝘼𝙇𝘼𝙄𝙆𝙐𝙈✨"
+			myPrefix: "                           "
 				+ "\n                         "
+				+ "\n 🌎 System prefix: %1"
+				+ "\n 📚 Your group prefix: %2"
 				+ "\n                         "
-				+ "\n  🌎 System prefix: %1"
-				+ "\n  📚 Your group prefix: %2"
+				+ "\n╭‣ Admin 👑"
+				+ "\n╰‣ SAIF_ISLAM"
 				+ "\n                         "
-				+ "\n ╭‣ Admin 👑"
-				+ "\n ╰‣ SAIF_ISLAM>⁠.⁠<"
-				+ "\n                         "
-				+ "\n ╭‣ Facebook <3"
-			        + "\n ╰‣ https://m.me/ewrsaif570"
+				+ "\n╭‣ Facebook <3"
+			        + "\n╰‣ https://m.me/ewrsaif570"
 		}
 	},
 
