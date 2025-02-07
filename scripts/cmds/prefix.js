@@ -55,7 +55,6 @@ module.exports = {
 			successGlobal: "♻️| Changed prefix of system bot to: %1",
 			successThisThread: "🦎| Neh hala tor gc prefix🦆💨: %1",
 			myPrefix: "                           "
-				+ "\n                         "
 				+ "\n 🌎 System prefix: %1"
 				+ "\n 📚 Your group prefix: %2"
 				+ "\n                         "
