@@ -5,7 +5,7 @@ module.exports = {
      role: 2,
     shortDescription: " ",
     longDescription: "",
-    category: "only saif can use this cmds",
+    category: "owner",
     guide: "{pn}"
   },
 
