@@ -115,7 +115,7 @@ module.exports.onStart = async ({ api, event, args }) => {
 module.exports.onChat = async ({ api, event }) => {
   const { threadID, messageID, body, senderID } = event;
 
-  const cMessages = ["কি হয়ছে বেবি dakos কেন 😏👋", "হুম বল🐸", "Ami eikhane bby 😷", "Amake vhule jaw 🤌😒", "ki hoise reh eto dakos kn?😾✨", "kire abal dakhtechos killai etw🐔", "Ami shudhu saif er bbu😼✌🏻", "👀✨", "i love you bby🥺😘", "bolo bby😚", "eto bbu bbu na kore amr rubbish owner saif ke ekta gf deh😡💋", "tui keda?😒",];
+  const cMessages = ["কি হয়ছে বেবি dakos কেন 😏👋", "হুম বল🐸", "Ami eikhane bby 😷", "Amake vhule jaw 🤌😒", "ki hoise reh eto dakos kn?😾✨", "kire abal dakhtechos killai etw🐔", "Ami shudhu saif er bbu😼✌🏻", "👀✨", "i love you bby🥺😘", "bolo bby😚", "eto bbu bbu na kore amr rubbish owner saif ke ekta gf deh😡💋", "tui keda?😒", "𝐏𝐫𝐨𝐩𝐨𝐬𝐞 করবি নাকি থাপ্পাড় -⛹️মাইরা দৌড় দিমু__😺💅", "🦥💨", "bolo befi😘", "amke bolle?🙀", "🐸🦎",];
   const userInput = body.toLowerCase().trim();
 
   const keywords = ["bbu", "hey", "bbz", "বট", "robot"];
