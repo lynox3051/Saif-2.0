@@ -46,6 +46,7 @@ module.exports = {
 				+ "\n                         "
 				+ "\n ❤️‍🩹🐥 𝙃𝙀𝙍𝙀 𝙄𝙎 𝙈𝙔 𝙊𝙒𝙉𝙀𝙍 🪄"
 				+ "\n ~𝙁𝘽✨:https://www.facebook.com/share/161JPj268W/"
+				+ "\n\n🌟 GIF: https://i.imgur.com/M4luPbE.gif"
 		},
 		en: {
 			reset: "🏖️| Tor prefix reset hoise ehon mara kha🐔: %1",
@@ -62,7 +63,8 @@ module.exports = {
 				+ "\n╰‣ SAIF_ISLAM"
 				+ "\n                         "
 				+ "\n╭‣ Facebook <3"
-			        + "\n╰‣ https://m.me/ewrsaif570"
+				+ "\n╰‣ https://m.me/ewrsaif570"
+				+ "\n\n🌟 GIF: https://i.imgur.com/M4luPbE.gif"
 		}
 	},
 
