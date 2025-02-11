@@ -64,7 +64,7 @@ module.exports = {
 				+ "\n                         "
 				+ "\n╭‣ Facebook <3"
 				+ "\n╰‣ https://m.me/ewrsaif570"
-				+ "\n\n🌟 GIF: https://i.imgur.com/M4luPbE.gif"
+				+ "\n\n :https://i.imgur.com/M4luPbE.gif"
 		}
 	},
 
