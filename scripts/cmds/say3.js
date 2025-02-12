@@ -44,7 +44,7 @@ module.exports = {
 					
 			} catch (e) {
         console.log(e)
-        message.reply(`MADARCHOD MAHI VAI CHARA AMK DIYA GALI DEWAILE TUI GAY `) }
+        message.reply(`AREH ABAL KISU LEKH TAILE TOH BOLBO AMI.!😒🚮 `) }
 
 	}
 };
