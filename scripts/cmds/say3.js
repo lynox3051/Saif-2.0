@@ -3,9 +3,9 @@ const axios = require('axios');
 module.exports = {
 	config: {
 		name: "say3",
-		aliases: ["sbn"],
+		aliases: ["say"],
 		version: "1.0",
-		author: "Siam the frog>🐸",
+		author: "SA IF",
 		countDown: 5,
 		role: 0,
 		shortDescription: "Say something Bangla will say it clearly",
