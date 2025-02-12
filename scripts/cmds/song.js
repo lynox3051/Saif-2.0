@@ -11,7 +11,7 @@ const baseApiUrl = async () => {
 module.exports = {
 	config: {
 		name: "song",
-		aliases: ["music"],
+		aliases: ["music", "sing", "play",],
 		version: "1.0.0",
 		author: "dipto",
 		countDown: 5,
